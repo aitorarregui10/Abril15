@@ -1,0 +1,129 @@
+<h1>Ejercicios Directivas 15 de Abril</h1>
+    <h2>Arma tu PC</h2>
+    <div>
+        <ul>
+            <li>
+                <label>Tamaño de la RAM:</label><br>
+                <input type="radio" id="ram32" name="ram" [(ngModel)]="selectedRam" [value]="'32GB'">
+                <label for="ram32">32GB</label><br>
+                <input type="radio" id="ram16" name="ram" [(ngModel)]="selectedRam" [value]="'16GB'">
+                <label for="ram16">16GB</label><br>
+                <input type="radio" id="ram8" name="ram" [(ngModel)]="selectedRam" [value]="'8GB'">
+                <label for="ram8">8GB</label>
+            </li>
+        </ul>
+        <ul>
+            <li>
+            <label>Tamaño de la RAM:</label><br>
+            <select [(ngModel)]="selectedProcessor">
+                        @for (item of seleccionarProcessor; track item.processor) {
+                            <option>{{item.processor}}</option>
+                        }
+            </select>
+            </li>      
+        </ul>
+     <h4>Tarjeta gráfica</h4>
+    <ul>
+        <li>
+            <label for="tarjetaGrafica">Tarjeta gráfica:</label>
+            <input type="checkbox" id="tarjetaGrafica" (change)="seleccionTarjeta($event)">
+ 
+          </li>
+    </ul>
+    <h4>Discos Duros</h4>
+        <ul>
+            @for (item of discoDuros; track item.disco) {
+                <li>
+                    <input type="radio" name="disco" [value]="item.disco" [(ngModel)]="selecteddiscoDuro">
+                    {{item.disco}}
+                </li>
+            }
+        </ul>
+    <h4>Fuentes de Alimentación</h4>
+        <ul>
+            <select [(ngModel)]="selectedAlimentacion">
+                @for (item of fuenteAlimentacion; track item.fuente) {
+                    <option>{{item.fuente}}</option>
+                }
+            </select>
+        </ul>
+        <button (click)="mostrainfo()">Mostrar Información</button>
+        {{ mensaje }}
+    </div> 
+    
+    
+    
+    <div>
+    <h2>Reserva de Vuelos</h2>
+    <ul>
+        <li>
+            <label>Origen:</label><br>
+            <select [(ngModel)]="selectedOrigen">
+                @for (item of seleccionarOrigen; track item.origen) {
+                    <option>{{item.origen}}</option>
+                }
+            </select>
+        </li>      
+        <li>
+            <label>Destino:</label><br>
+            <select [(ngModel)]="selectedDestino">
+                @for (item of seleccionarDestino; track item.destino) {
+                    <option [value]="item.destino">{{item.destino}}</option>
+                }
+            </select>
+        </li>  
+    </ul>
+    <ul>
+        <li>
+            <label>Fecha ida:</label><br>
+            <input [(ngModel)]="fechaIda" type="date" name="" id="">
+            <label>Fecha ida:</label><br>
+            <input [(ngModel)]="fechaVuelta" type="date" name="" id="">
+            </li>
+        </ul>   
+        <ul>
+            <li>
+                <label for="numPasajero">Número de pasajeros</label>
+                <input [(ngModel)]="numPasajero" type="number">
+            </li>
+        </ul>     
+            <button (click)="mostrainfo2()">Mostrar Información Vuelos</button>
+            {{ mensaje2 }}
+        </div>
+        <div>
+        <h2>Usando Directivas</h2>
+        <ul>
+            <li>
+                <label>Género:</label><br>
+                <select [(ngModel)]="selectedGenero">
+                    @for (item of seleccionarGeneros; track item.genero) {
+                        <option>{{item.genero}}</option>
+                    }
+                </select>
+            </li>      
+            <li>
+                <label>Nacionalidades:</label><br>
+                <select [(ngModel)]="selectedNacionalidad">
+                    @for (item of seleccionarNacionalidades; track item.nacionalidad) {
+                        <option [value]="item.nacionalidad">{{item.nacionalidad}}</option>
+                    }
+                </select>
+            </li>  
+            <li>
+                <label>Lenguajes de Programacion:</label><br>
+                @for (item of lenguajesProgramacion; track item.lenguaje) {
+                    <li>
+                        <input type="checkbox" name="lenguajesProgramacion" [value]="item.lenguaje" [(ngModel)]="lenguajesProgramacion">
+                        {{item.lenguaje}}
+                    </li>
+                }
+            </li> 
+        </ul>
+  
+                <button (click)="mostrainfo3()">Mostrar Información Directivas</button>
+                {{ mensaje3 }}
+        </div>
+            
+            
+            
+            
