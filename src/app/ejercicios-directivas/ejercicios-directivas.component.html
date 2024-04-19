@@ -111,9 +111,9 @@
             </li>  
             <li>
                 <label>Lenguajes de Programacion:</label><br>
-                @for (item of lenguajesProgramacion; track item.lenguaje) {
+                @for (item of Lenguajes; track item.lenguaje) {
                     <li>
-                        <input type="checkbox" name="lenguajesProgramacion" [value]="item.lenguaje" [(ngModel)]="lenguajesProgramacion">
+                        <input type="checkbox" name="lenguajesProgramacion" [value]="item.lenguaje" [(ngModel)]="item.selected">
                         {{item.lenguaje}}
                     </li>
                 }

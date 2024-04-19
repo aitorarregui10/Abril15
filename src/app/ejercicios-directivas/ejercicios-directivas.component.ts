@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+
 @Component({
   selector: 'app-ejercicios-directivas',
   standalone: true,
@@ -56,15 +57,19 @@ selectedGenero: string= "";
 seleccionarGeneros= [{genero:'Hombre'}, {genero:'Mujer'}, {genero:'Otros'}];
 selectedNacionalidad: string= "";
 seleccionarNacionalidades= [{nacionalidad:'Finlandesa'}, {nacionalidad:'Tailandesa'}, {nacionalidad:'Española'}];
-lenguajesProgramacion= [{lenguaje:'C++'}, {lenguaje:'Java'}, {lenguaje:'JS'},{lenguaje:'Python'}];
-selectecLenguaje: string= "";
-cMas:boolean=false;
-java:boolean=false;
-js:boolean=false;
-python:boolean=false;
+Lenguajes = [
+  { id: 1, lenguaje:"C++", selected: false },
+  { id: 2, lenguaje:"Java", selected: false },
+  { id: 3, lenguaje:"JS", selected: false },
+  { id: 4, lenguaje:"Python", selected: false },
+];
 
-mostrainfo3():void{
-  this.mensaje3= this.selectedGenero+this.selectedNacionalidad+this.selectecLenguaje;
-  }
-
+mostrainfo3(): void {
+  const seleccionados: string = this.Lenguajes
+    .filter(lenguaje => lenguaje.selected)
+    .map(lenguaje => lenguaje.lenguaje)
+    .join('\n'); 
+  
+  alert(this.mensaje3 = 'Género: '+this.selectedGenero + '\n' + 'Nacionalidad: '+this.selectedNacionalidad + '\n'+ 'Lenguajes de programación seleccionados: '+ seleccionados);
+}
 }
